@@ -75,51 +75,39 @@ class Contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
-    attributes = ["first_name", "last_name", "email", "note"]
-    puts "Which attribute would you like to edit?"
-    puts attributes
-    user_input = gets.chomp
-    puts "Enter new value for #{user_input}"
-    new_value = gets.chomp
-    if user_input == "first_name"
-      self.first_name = new_value
-    elsif user_input == "last_name"
-      self.last_name = new_value
-    elsif user_input == "email"
-      self.email = new_value
-    elsif user_input == "note"
-      self.note = new_value
+  def update(user_input, new_value)
+    case user_input
+    when 1 then self.first_name = new_value
+    when 2 then self.last_name = new_value
+    when 3 then self.first_name = new_value
+    when 4 then self.note = new_value
     end
-    puts "Contact updated!"
+    return self
   end
+
 
   # This method should work similarly to the find method above
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name',  'Betty' should return the first contact named Betty
   def self.find_by(attribute, value)
+    # @@contacts.each do |contact|
+    #   # a = contact.instance_variables
+    #   if attribute == "first_name"
     #
-    # attributes = ["first_name", "last_name", "email", "note"]
-    # puts "Enter what attribue you would like to search by:"
-    # puts attributes
-    # attribute = gets.chomp
-    # puts "Enter attribute value:"
-    # # attribute_value = gets.chomp
-    @@contacts.each do |contact|
-      # a = contact.instance_variables
-      case attribute
-      when "first_name" then 
-      when "last_name" then
-      when "email" then
-
-      if a.include?(attribute)
-          use_attribute = attribute
-
-      end
+    #   # case attribute
+    #   # when "first_name"
+    #   #   then
+    #   # when "last_name" then
+    #   # when "email" then
+    #
+    #   # if a.include?(attribute)
+    #   #     use_attribute = attribute
+    #
+    #   end
 
 
-      if contact.instance_variable_get("@#{attribute}") == value
+      # if contact.instance_variable_get("@#{attribute}") == value
       # if contact.key == "first_name" && attribute_value ==
     #     self.first_name = new_value
     #   elsif user_input == "last_name"
@@ -164,26 +152,3 @@ class Contact
   end
 end
   # Feel free to add other methods here, if you need them.
-
-
-
-jason = Contact.create("Jason", "Smith", "jason@jason.com", "I like food")
-# puts jason.inspect
-bob = Contact.create("Bob", "Cobb", "bob@bob.com", "PIZZA!")
-# puts bob.inspect
-
-# puts Contact.all.inspect
-# puts Contact.find(2).inspect
-# puts Contact.find_by
-# Contact.delete_all
-# puts  Contact.all.inspect
-# puts bob.full_name
-
-# puts Contact.all.inspect
-# bob.delete
-# puts Contact.all.inspect
-
-# bob.update
-p bob.inspect
-# p bob.instance_variable_get(:@first_name).class
-p bob.instance_variables.class
