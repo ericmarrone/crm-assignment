@@ -61,7 +61,7 @@ class CRM
     puts "Enter contact ID to edit"
     user_id = gets.to_i
     Contact.find(user_id)
-    attributes = ["first_name", "last_name", "email", "note"]
+    # attributes = ["first_name", "last_name", "email", "note"]
     puts "Which attribute would you like to edit?"
     puts '[1] first_name'
     puts '[2] last_name'
@@ -77,7 +77,11 @@ class CRM
   end
 
   def delete_contact
-
+    puts "Enter contact ID to edit"
+    user_id = gets.to_i
+    contact_to_delete = Contact.find(user_id)
+    contact_to_delete.delete
+    puts "Contact deleted!"
   end
 
   def display_all_contacts
