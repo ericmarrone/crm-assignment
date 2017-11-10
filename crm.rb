@@ -89,18 +89,31 @@ class CRM
   end
 
   def search_by_attribute
-    attributes = ["first_name", "last_name", "email", "note"]
     puts "Enter what attribute you would like to search by:"
-    puts attributes
-    attribute = gets.chomp
-    puts "Enter attribute value:"
-    attribute_value = gets.chomp
+    puts '[1] first_name'
+    puts '[2] last_name'
+    puts '[3] email'
+    puts '[4] note'
+    user_input = gets.to_i
+    # attributes = ["first_name", "last_name", "email", "note"]
+    # attributes.map! {|k| instance_variable_get("@#{k}")}
+    inst_var = nil
+    case user_input
+    when 1 then inst_var = "first_name"
+    when 2 then inst_var = "last_name"
+    when 3 then inst_var = "email"
+    when 4 then inst_var = "notes"
+    end
+    puts "Enter search value:"
+    search_value = gets.chomp.to_s
+    search_return = Contact.find_by(inst_var, search_value)
+    puts search_return.inspect
   end
 
 end
 
 jerry = Contact.create("Jerry", "Seinfeld", "jerry@comedian.com", "Even Stevens")
-george = Contact.create("Geroge", "Costanza", "george@yankees.com", "Cantstandya")
+george = Contact.create("George", "Costanza", "george@yankees.com", "Cantstandya")
 kramer = Contact.create("Cosmo", "Kramer", "kramer@kramericaindustries.com", "These pretzels are making me thirsty!")
 elaine = Contact.create("Elaine", "Bennes", "elaine@pendant.com", "Spongeworthy")
 

@@ -90,50 +90,22 @@ class Contact
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name',  'Betty' should return the first contact named Betty
-  def self.find_by(attribute, value)
-    # @@contacts.each do |contact|
-    #   # a = contact.instance_variables
-    #   if attribute == "first_name"
-    #
-    #   # case attribute
-    #   # when "first_name"
-    #   #   then
-    #   # when "last_name" then
-    #   # when "email" then
-    #
-    #   # if a.include?(attribute)
-    #   #     use_attribute = attribute
-    #
-    #   end
-
-
-      # if contact.instance_variable_get("@#{attribute}") == value
-      # if contact.key == "first_name" && attribute_value ==
-    #     self.first_name = new_value
-    #   elsif user_input == "last_name"
-    #     self.last_name = new_value
-    #   elsif user_input == "email"
-    #     self.email = new_value
-    #   elsif user_input == "note"
-    #     self.note = new_value
-    #   end
-    # #   if attribute == "first_name"
-    #     first_name
-    #   elsif attribute == "last_name"
-    #     last_name
-    #   elsif attribute == "email"
-    #     email
-    #   elsif attribute == "note"
-    #     note
-    #   end
-    #       return contact.inspect
-    #     else
-    #       puts "Search not found"
-    #       @@contacts.each do |contact|
-    #
-    #     end
-    #   end
+  def self.find_by(inst_var, search_value)
+    # x = nil
+    # case user_input
+    # when 1 then x = self.first_name
+    # when 2 then x = self.last_name
+    # when 3 then x = self.email
+    # when 4 then x = self.note
     # end
+    search_result = []
+    # if inst_var == "first_name"
+    @@contacts.each do |contact|
+      if contact.instance_variable_get("@#{inst_var}") == search_value
+        search_result << self
+      end
+    end
+    return search_result
   end
 
   # This method should delete all of the contacts
