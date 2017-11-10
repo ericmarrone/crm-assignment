@@ -91,13 +91,6 @@ class Contact
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name',  'Betty' should return the first contact named Betty
   def self.find_by(inst_var, search_value)
-    # x = nil
-    # case user_input
-    # when 1 then x = self.first_name
-    # when 2 then x = self.last_name
-    # when 3 then x = self.email
-    # when 4 then x = self.note
-    # end
     search_result = []
     # if inst_var == "first_name"
     @@contacts.each do |contact|
