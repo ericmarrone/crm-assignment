@@ -108,6 +108,7 @@ class CRM
     search_value = gets.chomp.to_s
     search_return = Contact.find_by(inst_var, search_value)
     puts search_return.inspect
+
   end
 
 end

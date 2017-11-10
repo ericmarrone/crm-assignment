@@ -102,7 +102,7 @@ class Contact
     # if inst_var == "first_name"
     @@contacts.each do |contact|
       if contact.instance_variable_get("@#{inst_var}") == search_value
-        search_result << self
+        search_result << contact
       end
     end
     return search_result
