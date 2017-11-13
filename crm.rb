@@ -49,7 +49,12 @@ class CRM
     print 'Enter a note:'
     note = gets.chomp
 
-    Contact.create(first_name, last_name, email, note)
+    contact = Contact.create(
+      first_name: first_name,
+      last_name:  last_name,
+      email:      email,
+      note:       note
+    )
 
   end
 
@@ -113,10 +118,10 @@ class CRM
 
 end
 
-jerry = Contact.create("Jerry", "Seinfeld", "jerry@comedian.com", "Even Stevens")
-george = Contact.create("George", "Costanza", "george@yankees.com", "Cantstandya")
-kramer = Contact.create("Cosmo", "Kramer", "kramer@kramericaindustries.com", "These pretzels are making me thirsty!")
-elaine = Contact.create("Elaine", "Bennes", "elaine@pendant.com", "Spongeworthy")
+# jerry = Contact.create("Jerry", "Seinfeld", "jerry@comedian.com", "Even Stevens")
+# george = Contact.create("George", "Costanza", "george@yankees.com", "Cantstandya")
+# kramer = Contact.create("Cosmo", "Kramer", "kramer@kramericaindustries.com", "These pretzels are making me thirsty!")
+# elaine = Contact.create("Elaine", "Bennes", "elaine@pendant.com", "Spongeworthy")
 
 contacts3000 = CRM.new("Contacts 3000")
 contacts3000.main_menu
