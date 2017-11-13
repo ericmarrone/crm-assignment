@@ -1,3 +1,9 @@
+gem 'activerecord', '=4.2.10'
+require 'active_record'
+require 'mini_record'
+
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'crm.sqlite3')
+
 class Contact
   @@contacts = []
   @@id = 1
@@ -92,7 +98,6 @@ class Contact
   # eg. searching for 'first_name',  'Betty' should return the first contact named Betty
   def self.find_by(inst_var, search_value)
     search_result = []
-    # if inst_var == "first_name"
     @@contacts.each do |contact|
       if contact.instance_variable_get("@#{inst_var}") == search_value
         search_result << contact
