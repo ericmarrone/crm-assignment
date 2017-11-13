@@ -145,3 +145,7 @@ contacts3000.main_menu
 # p bob.inspect
 # # p bob.instance_variable_get(:@first_name).class
 # p bob.instance_variables.class
+
+at_exit do
+  ActiveRecord::Base.connection.close
+end
