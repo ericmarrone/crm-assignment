@@ -65,7 +65,6 @@ class CRM
     # end
     puts "Enter contact ID to edit"
     user_id = gets.to_i
-    Contact.find(user_id)
     # attributes = ["first_name", "last_name", "email", "note"]
     puts "Which attribute would you like to edit?"
     puts '[1] first_name'
@@ -77,7 +76,13 @@ class CRM
     puts "Enter new value for #{attributes[ user_input - 1 ]}"
     new_value = gets.chomp
     contact_to_edit = Contact.find(user_id)
-    contact_to_edit.update(user_input, new_value)
+    case user_input
+    when 1 then user_input = 'first_name'
+    when 2 then user_input = 'last_name'
+    when 3 then user_input = 'email'
+    when 4 then user_input = 'note'
+    end
+    contact_to_edit.update_attribute(user_input, new_value)
     puts "Contact updated!"
   end
 
